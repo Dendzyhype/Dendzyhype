@@ -6,7 +6,7 @@
 
 <img src="divider.svg" width="100%" />
 
-### 🔥 whoami
+### 🔥 Кто я?
 
 </div>
 
@@ -14,7 +14,7 @@
 const Dendzy = {
   vibe     : 'разработчик 🔥',
   focus    : ['сайты', 'приложения', 'боты'],
-  stack    : ['HTML', 'CSS', 'JS', 'Kotlin', 'Python'],
+  stack    : ['Java', 'Python', 'JS', 'HTML', 'GitHub'],
   motto    : 'если приложения нет — я его делаю',
 };
 ```
@@ -25,7 +25,7 @@ const Dendzy = {
 
 ### 🛠️ стек
 
-<img src="https://skillicons.dev/icons?i=html,css,js,ts,kotlin,py,nodejs,git,github,figma&theme=dark&perline=10" alt="stack" />
+<img src="https://skillicons.dev/icons?i=java,py,js,html,github&theme=dark&perline=5" alt="stack" />
 
 <img src="divider.svg" width="100%" />
 
