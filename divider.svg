@@ -6,12 +6,18 @@
       <stop offset="0.5" stop-color="#FFB020" stop-opacity="0.95"/>
       <stop offset="0.82" stop-color="#FF2A00" stop-opacity="0.85"/>
       <stop offset="1" stop-color="#FF2A00" stop-opacity="0"/>
+      <animate attributeName="x1" values="0;0.22;0" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1;1.22;1" dur="7s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="diamond" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFB020"/>
+      <stop offset="1" stop-color="#FF3A0F"/>
     </linearGradient>
   </defs>
   <rect x="0" y="14" width="1200" height="1.5" fill="url(#line)"/>
   <g transform="translate(600 15)">
-    <rect x="-6" y="-6" width="12" height="12" transform="rotate(45)" fill="#0B0504" stroke="#FF7A1A" stroke-width="1.6"/>
-    <rect x="-2" y="-2" width="4" height="4" transform="rotate(45)" fill="#FFB020"/>
+    <rect x="-6" y="-6" width="12" height="12" transform="rotate(45)" fill="#0B0504" stroke="url(#diamond)" stroke-width="1.6"/>
+    <rect x="-2" y="-2" width="4" height="4" transform="rotate(45)" fill="url(#diamond)"/>
   </g>
   <circle cx="80" cy="15" r="2.5" fill="#FF5A16" fill-opacity="0.8"/>
   <circle cx="1120" cy="15" r="2.5" fill="#FF2A00" fill-opacity="0.8"/>
