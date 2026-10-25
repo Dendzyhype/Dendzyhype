@@ -62,10 +62,12 @@
     <text x="112" y="296">HTML</text>
     <rect x="202" y="278" width="86" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
     <text x="218" y="296">JS</text>
-    <rect x="298" y="278" width="102" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
-    <text x="314" y="296">KOTLIN</text>
-    <rect x="410" y="278" width="96" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
-    <text x="426" y="296">PY</text>
+    <rect x="298" y="278" width="96" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
+    <text x="314" y="296">JAVA</text>
+    <rect x="404" y="278" width="86" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
+    <text x="420" y="296">PY</text>
+    <rect x="500" y="278" width="110" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
+    <text x="516" y="296">GITHUB</text>
   </g>
 
   <!-- right: code glyph -->
