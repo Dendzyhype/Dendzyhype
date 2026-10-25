@@ -1,15 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Dendzy">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Dendzyhype">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0F0806"/>
       <stop offset="0.5" stop-color="#180B07"/>
       <stop offset="1" stop-color="#0B0504"/>
     </linearGradient>
-    <linearGradient id="name" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#FFC46B"/>
-      <stop offset="0.45" stop-color="#FF7A1A"/>
-      <stop offset="1" stop-color="#FF3A0F"/>
+
+    <!-- переливающийся градиент имени: стопы едут по кругу -->
+    <linearGradient id="name" x1="0" y1="0" x2="1" y2="0.15">
+      <stop offset="0" stop-color="#FFE1A8">
+        <animate attributeName="offset" values="-0.08;0.22;-0.08" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="0.35" stop-color="#FF8A1F">
+        <animate attributeName="offset" values="0.28;0.52;0.28" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="0.7" stop-color="#FF3A0F">
+        <animate attributeName="offset" values="0.62;0.88;0.62" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#FFC46B">
+        <animate attributeName="offset" values="0.95;1.1;0.95" dur="6s" repeatCount="indefinite"/>
+      </stop>
     </linearGradient>
+
+    <!-- блик, пробегающий по буквам -->
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="nameClip">
+      <text x="92" y="208" font-family="Montserrat, Segoe UI, Arial, sans-serif"
+            font-size="96" font-weight="800" letter-spacing="1">Dendzyhype</text>
+    </clipPath>
+
     <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#FF9A28"/>
       <stop offset="1" stop-color="#C1121F"/>
@@ -19,6 +42,8 @@
       <stop offset="0.2" stop-color="#FF5A16" stop-opacity="0.9"/>
       <stop offset="0.8" stop-color="#FF2A00" stop-opacity="0.85"/>
       <stop offset="1" stop-color="#FF2A00" stop-opacity="0"/>
+      <animate attributeName="x1" values="0;0.25;0" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1;1.25;1" dur="7s" repeatCount="indefinite"/>
     </linearGradient>
     <radialGradient id="glow1" cx="0.15" cy="0.1" r="0.7">
       <stop offset="0" stop-color="#FF5A16" stop-opacity="0.26"/>
@@ -50,7 +75,12 @@
 
   <!-- name -->
   <text x="92" y="208" font-family="Montserrat, Segoe UI, Arial, sans-serif"
-        font-size="96" font-weight="800" letter-spacing="1" fill="url(#name)">Dendzy</text>
+        font-size="96" font-weight="800" letter-spacing="1" fill="url(#name)">Dendzyhype</text>
+  <g clip-path="url(#nameClip)">
+    <rect x="-420" y="110" width="240" height="120" fill="url(#shine)">
+      <animate attributeName="x" values="-420;1180" dur="5.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
 
   <!-- subtitle -->
   <text x="96" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="21"
