@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="Dendzyhype">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F0806"/>
+      <stop offset="0.5" stop-color="#180B07"/>
+      <stop offset="1" stop-color="#0B0504"/>
+    </linearGradient>
+    <linearGradient id="name" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFC46B"/>
+      <stop offset="0.45" stop-color="#FF7A1A"/>
+      <stop offset="1" stop-color="#FF3A0F"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF9A28"/>
+      <stop offset="1" stop-color="#C1121F"/>
+    </linearGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF5A16" stop-opacity="0"/>
+      <stop offset="0.2" stop-color="#FF5A16" stop-opacity="0.9"/>
+      <stop offset="0.8" stop-color="#FF2A00" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#FF2A00" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.15" cy="0.1" r="0.7">
+      <stop offset="0" stop-color="#FF5A16" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#FF5A16" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.92" cy="0.95" r="0.65">
+      <stop offset="0" stop-color="#FF2200" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#FF2200" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#FF6A1A" stroke-opacity="0.07"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="340" fill="url(#bg)"/>
+  <rect width="1200" height="340" fill="url(#grid)"/>
+  <rect width="1200" height="340" fill="url(#glow1)"/>
+  <rect width="1200" height="340" fill="url(#glow2)"/>
+
+  <!-- accent bar + corner brackets -->
+  <rect x="0" y="0" width="6" height="340" fill="url(#bar)"/>
+  <path d="M56 40h-26v26M1144 40h26v26M56 300h-26v-26M1144 300h26v-26"
+        fill="none" stroke="#FF5A16" stroke-opacity="0.55" stroke-width="2"/>
+
+  <!-- kicker -->
+  <text x="96" y="92" font-family="Fira Code, Cascadia Code, Consolas, monospace"
+        font-size="17" letter-spacing="7" fill="#FF8A1F" fill-opacity="0.95">// SHIZCORE STUDIO</text>
+  <rect x="96" y="106" width="64" height="2" fill="#FF5A16" fill-opacity="0.8"/>
+
+  <!-- name -->
+  <text x="92" y="208" font-family="Montserrat, Segoe UI, Arial, sans-serif"
+        font-size="96" font-weight="800" letter-spacing="1" fill="url(#name)">Dendzyhype</text>
+
+  <!-- subtitle -->
+  <text x="96" y="252" font-family="Segoe UI, Arial, sans-serif" font-size="21"
+        fill="#FFD9C2" fill-opacity="0.86">Minecraft-аддоны · сайты под ключ · то, чего ещё нет</text>
+
+  <!-- tags -->
+  <g font-family="Fira Code, Cascadia Code, Consolas, monospace" font-size="14" fill="#FF7A1A">
+    <rect x="96" y="278" width="96" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
+    <text x="112" y="296">HTML</text>
+    <rect x="202" y="278" width="86" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
+    <text x="218" y="296">JS</text>
+    <rect x="298" y="278" width="102" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
+    <text x="314" y="296">KOTLIN</text>
+    <rect x="410" y="278" width="96" height="26" rx="4" fill="#FF5A16" fill-opacity="0.1" stroke="#FF5A16" stroke-opacity="0.45"/>
+    <text x="426" y="296">PY</text>
+  </g>
+
+  <!-- right: code glyph -->
+  <g font-family="Fira Code, Cascadia Code, Consolas, monospace" fill="#FF5A16" fill-opacity="0.45" font-size="112" font-weight="700">
+    <text x="880" y="208">&lt;/&gt;</text>
+  </g>
+
+  <rect x="96" y="322" width="1008" height="1" fill="url(#rule)"/>
+</svg>
