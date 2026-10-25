@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="30" viewBox="0 0 1200 30" role="img" aria-label="divider">
+  <defs>
+    <!-- тусклая основа: линия видна всегда -->
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF5A16" stop-opacity="0"/>
+      <stop offset="0.15" stop-color="#FF5A16" stop-opacity="0.35"/>
+      <stop offset="0.5" stop-color="#FF9A28" stop-opacity="0.45"/>
+      <stop offset="0.85" stop-color="#FF2A00" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FF2A00" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- бегущий блик -->
+    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFC46B" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#FFD27A" stop-opacity="0.95"/>
+      <stop offset="0.5" stop-color="#FFF3D6" stop-opacity="1"/>
+      <stop offset="0.65" stop-color="#FF8A1F" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#FF5A16" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFD27A" stop-opacity="0.75"/>
+      <stop offset="0.5" stop-color="#FF7A1A" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FF5A16" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="diamond" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFD27A">
+        <animate attributeName="stop-color" values="#FFD27A;#FF3A0F;#FFD27A" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#FF3A0F">
+        <animate attributeName="stop-color" values="#FF3A0F;#FFC46B;#FF3A0F" dur="3s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+  </defs>
+
+  <!-- основа -->
+  <rect x="0" y="14" width="1200" height="2" fill="url(#base)"/>
+
+  <!-- бегущий блеск по линии -->
+  <rect x="-360" y="13" width="360" height="4" fill="url(#sweep)">
+    <animate attributeName="x" values="-360;1200" dur="3.6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="-360" y="13.5" width="360" height="3" fill="url(#sweep)">
+    <animate attributeName="x" values="1200;-360" dur="3.6s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ореол вокруг центрального ромба -->
+  <ellipse cx="600" cy="15" rx="120" ry="10" fill="url(#halo)">
+    <animate attributeName="rx" values="90;150;90" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <g transform="translate(600 15)">
+    <rect x="-6" y="-6" width="12" height="12" transform="rotate(45)" fill="#0B0504" stroke="url(#diamond)" stroke-width="1.8"/>
+    <rect x="-2" y="-2" width="4" height="4" transform="rotate(45)" fill="url(#diamond)"/>
+  </g>
+
+  <circle cx="80" cy="15" r="2.5" fill="#FF5A16" fill-opacity="0.8">
+    <animate attributeName="r" values="2.5;4;2.5" dur="3.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1120" cy="15" r="2.5" fill="#FF2A00" fill-opacity="0.8">
+    <animate attributeName="r" values="4;2.5;4" dur="3.6s" repeatCount="indefinite"/>
+  </circle>
+</svg>
