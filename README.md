@@ -12,7 +12,7 @@
 
 ```js
 const Dendzyhype = {
-  vibe     : 'разработчик 🔥',
+  vibe     : 'разработчик',
   focus    : ['сайты', 'приложения', 'боты'],
   stack    : ['Java', 'Python', 'JS', 'HTML', 'GitHub'],
   motto    : 'если приложения нет — я его делаю',
@@ -45,7 +45,5 @@ _Скоро здесь появятся проекты._
 <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Dendzyhype&layout=compact&hide_border=true&bg_color=0F0806&title_color=FF7A1A&text_color=FFD9C2" />
 
 <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=Dendzyhype&bg_color=0F0806&color=FF5A16&line=FF5A16&point=FFB020&area=true&area_color=FF3A0F&hide_border=true&custom_title=activity" />
-
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:0F0806,100:FF3A0F&height=110&section=footer" width="100%" />
 
 </div>
