@@ -43,11 +43,9 @@ DEFS = """<defs>
 <linearGradient id="cBorder" x1="0" y1="0" x2="1" y2="1">
 <stop offset="0" stop-color="#FF5A16" stop-opacity="0.55"/><stop offset="1" stop-color="#C1121F" stop-opacity="0.25"/>
 </linearGradient>
-<linearGradient id="cTitle" x1="0" y1="0" x2="1" y2="0.15">
-<stop offset="0" stop-color="#FFF0C9"><animate attributeName="offset" values="-0.12;0.2;-0.12" dur="4.5s" repeatCount="indefinite"/></stop>
-<stop offset="0.35" stop-color="#FFA033"><animate attributeName="offset" values="0.25;0.5;0.25" dur="4.5s" repeatCount="indefinite"/></stop>
-<stop offset="0.7" stop-color="#FF2A00"><animate attributeName="offset" values="0.6;0.92;0.6" dur="4.5s" repeatCount="indefinite"/></stop>
-<stop offset="1" stop-color="#FFD27A"><animate attributeName="offset" values="0.98;1.15;0.98" dur="4.5s" repeatCount="indefinite"/></stop>
+<linearGradient id="cTitle" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0" spreadMethod="repeat">
+<stop offset="0" stop-color="#FF7A1A"/><stop offset="0.25" stop-color="#FFF0C9"/><stop offset="0.5" stop-color="#FFA033"/><stop offset="0.75" stop-color="#FF2A00"/><stop offset="1" stop-color="#FF7A1A"/>
+<animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="100 0" dur="2.5s" repeatCount="indefinite"/>
 </linearGradient>
 <pattern id="cGrid" width="20" height="20" patternUnits="userSpaceOnUse">
 <path d="M20 0H0V20" fill="none" stroke="#FF6A1A" stroke-opacity="0.07"/>
@@ -64,7 +62,22 @@ DEFS = """<defs>
 <rect x="1" y="1" width="{w}" height="{h}" rx="5" ry="5" fill="none" stroke="url(#cBorder)" stroke-width="1"/>"""
 
 
-def restyle(text: str) -> str:
+W, H = 400, 186
+RESIZE = (
+    ('width="340" height="200" viewBox="0 0 340 200"', f'width="{W}" height="{H}" viewBox="0 0 {W} {H}"'),
+    ('<text x="30" y="40" class="gpsc-item"', '<text x="30" y="36" class="gpsc-item"'),
+    ('<g transform="translate(0,40)">', '<g transform="translate(0,32)">'),
+    ('x="130" y=', 'x="150" y='),                       # stats: value column
+    ('<g transform="translate(220,20)">', '<g transform="translate(275,20)">'),  # stats: octocat
+    ('translate( 230, 80 )', 'translate( 310, 80 )'),   # languages: donut
+)
+RESIZE_CARDS = {"3-stats.svg", "2-most-commit-language.svg"}
+
+
+def restyle(text: str, name: str = "") -> str:
+    if name in RESIZE_CARDS:
+        for old, new in RESIZE:
+            text = text.replace(old, new)
     for old, new in COLORS:
         text = text.replace(old, new)
 
@@ -81,7 +94,7 @@ def restyle(text: str) -> str:
 def main() -> None:
     DST.mkdir(parents=True, exist_ok=True)
     for svg in sorted(SRC.glob("*.svg")):
-        out = restyle(svg.read_text(encoding="utf-8"))
+        out = restyle(svg.read_text(encoding="utf-8"), svg.name)
         (DST / svg.name).write_text(out, encoding="utf-8")
         print(f"themed {svg.name}")
 
