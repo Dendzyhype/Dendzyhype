@@ -41,7 +41,7 @@ _Скоро здесь появятся проекты._
 
 ### Статистика
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=Dendzyhype&show_icons=true&hide_border=true&hide_title=true&bg_color=0F0806&title_color=FF7A1A&icon_color=FFB020&text_color=FFD9C2&ring_color=FF5A16" />
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Dendzyhype&layout=compact&hide_border=true&bg_color=0F0806&title_color=FF7A1A&text_color=FFD9C2" />
+<img height="170" src="profile-summary-card-output/radical/3-stats.svg" />
+<img height="170" src="profile-summary-card-output/radical/2-most-commit-language.svg" />
 
 </div>
