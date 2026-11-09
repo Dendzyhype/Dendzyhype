@@ -91,12 +91,38 @@ def restyle(text: str, name: str = "") -> str:
     return text
 
 
+ROW_CARDS = ("3-stats.svg", "2-most-commit-language.svg")
+ROW_GAP = 16
+
+
+def build_row() -> None:
+    """Put both cards side by side in one SVG so it can be shown at width=100%."""
+    root = re.compile(r"<svg[^>]*>")
+    parts = []
+    x = 0
+    for name in ROW_CARDS:
+        text = (DST / name).read_text(encoding="utf-8")
+        nested = root.sub(
+            f'<svg x="{x}" y="0" width="{W}" height="{H}" viewBox="0 0 {W} {H}">', text, count=1
+        )
+        parts.append(nested)
+        x += W + ROW_GAP
+    total = x - ROW_GAP
+    row = (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{total}" height="{H}" '
+        f'viewBox="0 0 {total} {H}">' + "".join(parts) + "</svg>"
+    )
+    (DST / "stats-row.svg").write_text(row, encoding="utf-8")
+    print("built stats-row.svg")
+
+
 def main() -> None:
     DST.mkdir(parents=True, exist_ok=True)
     for svg in sorted(SRC.glob("*.svg")):
         out = restyle(svg.read_text(encoding="utf-8"), svg.name)
         (DST / svg.name).write_text(out, encoding="utf-8")
         print(f"themed {svg.name}")
+    build_row()
 
 
 if __name__ == "__main__":
