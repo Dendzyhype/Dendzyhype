@@ -41,7 +41,7 @@ _Скоро здесь появятся проекты._
 
 ### Статистика
 
-<img height="186" src="profile-summary-card-output/dendzyhype/3-stats.svg?v=4" />
-<img height="186" src="profile-summary-card-output/dendzyhype/2-most-commit-language.svg?v=4" />
+<img width="49.5%" src="profile-summary-card-output/dendzyhype/3-stats.svg?v=5" />
+<img width="49.5%" src="profile-summary-card-output/dendzyhype/2-most-commit-language.svg?v=5" />
 
 </div>
