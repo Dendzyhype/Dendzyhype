@@ -1,26 +1,16 @@
-"""Restyle the generated profile cards to match the banner.
-
-Reads the built-in `radical` theme output and writes restyled copies
-to profile-summary-card-output/dendzyhype/:
-  - orange palette,
-  - diagonal gradient background with grid and two corner glows,
-  - gradient accent bar on the left and gradient border,
-  - gradient title.
-"""
 import re
 from pathlib import Path
 
 SRC = Path("profile-summary-card-output/radical")
 DST = Path("profile-summary-card-output/dendzyhype")
 
-# plain color swaps (border first: it shares its color with the background)
 COLORS = [
-    ('stroke="#141321"', 'stroke="#3a1a0c"'),   # border (replaced below, kept as fallback)
-    ("#141321", "#0f0806"),                      # background (fallback)
-    ("#fe428e", "#ff7a1a"),                      # title (fallback)
-    ("#a9fef7", "#ffd9c2"),                      # text
-    ("#f8d847", "#ffb020"),                      # icons
-    ("#ae81ff", "#ff5a16"),                      # chart bars
+    ('stroke="#141321"', 'stroke="#3a1a0c"'),
+    ("#141321", "#0f0806"),
+    ("#fe428e", "#ff7a1a"),
+    ("#a9fef7", "#ffd9c2"),
+    ("#f8d847", "#ffb020"),
+    ("#ae81ff", "#ff5a16"),
 ]
 
 BG_RECT = re.compile(r'<rect x="1" y="1" rx="5" ry="5"[^>]*></rect>')
@@ -61,51 +51,48 @@ DEFS = """<defs>
 </g>
 <rect x="1" y="1" width="{w}" height="{h}" rx="5" ry="5" fill="none" stroke="url(#cBorder)" stroke-width="1"/>"""
 
-
 W, H = 400, 186
 RESIZE = (
     ('width="340" height="200" viewBox="0 0 340 200"', f'width="{W}" height="{H}" viewBox="0 0 {W} {H}"'),
     ('<text x="30" y="40" class="gpsc-item"', '<text x="30" y="36" class="gpsc-item"'),
     ('<g transform="translate(0,40)">', '<g transform="translate(0,32)">'),
-    ('x="130" y=', 'x="150" y='),                       # stats: value column
-    ('<g transform="translate(220,20)">', '<g transform="translate(275,20)">'),  # stats: octocat
-    ('translate( 230, 80 )', 'translate( 310, 80 )'),   # languages: donut
+    ('x="130" y=', 'x="150" y='),
+    ('<g transform="translate(220,20)">', '<g transform="translate(275,20)">'),
+    ('translate( 230, 80 )', 'translate( 310, 80 )'),
 )
 RESIZE_CARDS = {"3-stats.svg", "2-most-commit-language.svg"}
+ROW_CARDS = ("3-stats.svg", "2-most-commit-language.svg")
+ROW_GAP = 16
 
 
-def restyle(text: str, name: str = "") -> str:
+def restyle(text, name=""):
     if name in RESIZE_CARDS:
         for old, new in RESIZE:
             text = text.replace(old, new)
     for old, new in COLORS:
         text = text.replace(old, new)
-
     m = VIEWBOX.search(text)
     width, height = (float(m.group(1)), float(m.group(2))) if m else (340.0, 200.0)
     layers = DEFS.format(w=f"{width - 2:g}", h=f"{height - 2:g}")
-
     text, n = BG_RECT.subn(lambda _: layers, text, count=1)
     if n:
         text = text.replace(TITLE, "font-size: 22px; fill: url(#cTitle);")
     return text
 
 
-ROW_CARDS = ("3-stats.svg", "2-most-commit-language.svg")
-ROW_GAP = 16
-
-
-def build_row() -> None:
-    """Put both cards side by side in one SVG so it can be shown at width=100%."""
+def build_row():
     root = re.compile(r"<svg[^>]*>")
     parts = []
     x = 0
     for name in ROW_CARDS:
         text = (DST / name).read_text(encoding="utf-8")
-        nested = root.sub(
-            f'<svg x="{x}" y="0" width="{W}" height="{H}" viewBox="0 0 {W} {H}">', text, count=1
+        parts.append(
+            root.sub(
+                f'<svg x="{x}" y="0" width="{W}" height="{H}" viewBox="0 0 {W} {H}">',
+                text,
+                count=1,
+            )
         )
-        parts.append(nested)
         x += W + ROW_GAP
     total = x - ROW_GAP
     row = (
@@ -113,15 +100,13 @@ def build_row() -> None:
         f'viewBox="0 0 {total} {H}">' + "".join(parts) + "</svg>"
     )
     (DST / "stats-row.svg").write_text(row, encoding="utf-8")
-    print("built stats-row.svg")
 
 
-def main() -> None:
+def main():
     DST.mkdir(parents=True, exist_ok=True)
     for svg in sorted(SRC.glob("*.svg")):
         out = restyle(svg.read_text(encoding="utf-8"), svg.name)
         (DST / svg.name).write_text(out, encoding="utf-8")
-        print(f"themed {svg.name}")
     build_row()
 
 
